@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  service-auth:
+    build:
+      context: ./service-auth
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/authdb
+      SPRING_DATASOURCE_USERNAME: authuser
+      SPRING_DATASOURCE_PASSWORD: authpass
+    depends_on:
+      - postgres-db
+
+  service-payment:
+    build:
+      context: ./service-payment
+    ports:
+      - "8082:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/paymentdb
+      SPRING_DATASOURCE_USERNAME: payuser
+      SPRING_DATASOURCE_PASSWORD: paypass
+    depends_on:
+      - postgres-db
+
+  service-notification:
+    build:
+      context: ./service-notification
+    ports:
+      - "8083:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db:5432/notifydb
+      SPRING_DATASOURCE_USERNAME: notifyuser
+      SPRING_DATASOURCE_PASSWORD: notifypass
+    depends_on:
+      - postgres-db
+
+  postgres-db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_DB: authdb
+      POSTGRES_USER: authuser
+      POSTGRES_PASSWORD: authpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
