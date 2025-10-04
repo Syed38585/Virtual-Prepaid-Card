@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Card Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>💳 Virtual Card Dashboard</h1>
+
+    <!-- Main Menu -->
+    <div id="options" class="options">
+      <button onclick="showSection('createCardSection')">🪪 Create Card</button>
+      <button id="viewAllBtn">📋 View All Cards</button>
+      <button onclick="showSection('getByIdSection')">🔍 Get Card by ID</button>
+      <button onclick="showSection('transactionSection')">📈 Transaction History</button>
+      <button onclick="showSection('transferSection')">💸 Transfer Funds</button>
+    </div>
+
+    <!-- Create Card -->
+    <div id="createCardSection" class="section hidden">
+      <h2>Create Card</h2>
+      <form id="cardForm">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="phoneNo" placeholder="Phone Number" required />
+        <input type="number" id="balance" placeholder="Initial Balance" required />
+        <button type="submit">Create</button>
+      </form>
+      <p id="responseMessage"></p>
+      <button onclick="backToOptions()">⬅ Back</button>
+    </div>
+
+    <!-- All Cards -->
+    <div id="allCardsSection" class="section hidden">
+      <h2>All Cards</h2>
+      <div id="cardsContainer" class="cards-container"></div>
+      <button onclick="backToOptions()">⬅ Back</button>
+    </div>
+
+    <!-- Get Card by ID -->
+    <div id="getByIdSection" class="section hidden">
+      <h2>Get Card by ID</h2>
+      <input type="text" id="cardId" placeholder="Enter Card ID" />
+      <button onclick="getCardDetails()">Fetch Card</button>
+      <div id="cardDetails"></div>
+      <button onclick="backToOptions()">⬅ Back</button>
+    </div>
+
+    <!-- Transaction History -->
+    <div id="transactionSection" class="section hidden">
+      <h2>Transaction History</h2>
+      <input type="text" id="userId" placeholder="Enter Card ID" />
+      <button id="fetchBtn">Fetch History</button>
+
+      <div class="stats">
+        <p>Total: <span id="totalCount">0</span></p>
+        <p>Success: <span id="successCount">0</span></p>
+        <p>Failed: <span id="failedCount">0</span></p>
+      </div>
+
+      <div id="tableContainer"></div>
+      <canvas id="transactionChart" width="400" height="200"></canvas>
+      <button onclick="backToOptions()">⬅ Back</button>
+    </div>
+
+    <!-- Transfer Funds -->
+    <div id="transferSection" class="section hidden">
+      <h2>Transfer Funds</h2>
+      <form id="transferForm">
+        <input type="number" id="senderId" placeholder="Sender Card ID" required />
+        <input type="number" id="receiverId" placeholder="Receiver Card ID" required />
+        <input type="number" id="amount" placeholder="Amount" required />
+        <button type="submit">Transfer</button>
+      </form>
+      <p id="transferMessage"></p>
+      <button onclick="backToOptions()">⬅ Back</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
