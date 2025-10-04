@@ -9,16 +9,21 @@
         <outputRelativeToContentRoot value="true" />
         <module name="demo (1) (com.apiGateway)" />
       </profile>
+      <profile name="Annotation profile for demo" enabled="true">
+        <sourceOutputDir name="../../apiGateway/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../apiGateway/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demo" target="21" />
       <module name="demo (1) (com.security)" target="21" />
       <module name="demo (1) (com.vpc)" target="21" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
+      <module name="demo" options="" />
       <module name="demo (1) (com.apiGateway)" options="-parameters" />
       <module name="demo (1) (com.security)" options="-parameters" />
       <module name="demo (1) (com.vpc)" options="-parameters" />
