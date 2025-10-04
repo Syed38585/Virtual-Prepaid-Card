@@ -30,8 +30,6 @@ Users can view card balance and status.
 💰 Top-Up & Fund Management
 Users can add money to their virtual card from linked accounts.
 
-Supports multiple top-up methods (e.g., bank transfer, UPI, etc.).
-
 🔁 Money Transfer
 Peer-to-peer transfers between users.
 
