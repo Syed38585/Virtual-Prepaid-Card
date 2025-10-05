@@ -80,7 +80,7 @@ Language: Java
 
 Framework: Spring Boot
 
-Database: PostgreSQL
+Database: PostgreSQL, Redis
 
 Containerization: Docker
 
