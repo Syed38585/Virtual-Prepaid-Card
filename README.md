@@ -1,117 +1,82 @@
-# Virtual-Prepaid-Card
 
-Code
-project-root/
-├── service-eurekaServer/
-|
-├── service-security/
-│ 
-├── service-card/
-│   
-├── service-notification/
-|
-├── service-apiGateway/
-|
-└── docker-compose.yml
+---
 
+## 🧱 Microservices Overview
 
+| Service              | Description                                                                 |
+|----------------------|-----------------------------------------------------------------------------|
+| **Card Service**      | Manages virtual card creation, balance, and card operations                |
+| **Transfer Service**  | Handles top-ups, peer-to-peer transfers, refunds, and transaction history  |
+| **Notification Service** | Sends real-time alerts via email and SMS using external providers     |
+| **Security Service**  | Manages user authentication, JWT issuance, and role-based access control   |
+| **API Gateway**       | Centralized entry point for routing and securing client requests           |
+| **Eureka Server**     | Service registry for dynamic discovery and load balancing                  |
 
-💳 Virtual Prepaid Card
-A microservices-based financial application that enables users to manage virtual prepaid cards with features like top-up, money transfer, transaction history, refunds, and real-time notifications via email and SMS.
+---
 
-🚀 Features
-💳 Virtual Card Management
-Each user is issued a unique virtual prepaid card.
+## 🔐 Security & Authentication
 
-Card details are securely stored and managed.
+- JWT-based authentication
+- Role-based access control (User/Admin)
+- Secure login flows with encrypted credentials
+- Token validation at API Gateway and downstream services
 
-Users can view card balance and status.
+---
 
-💰 Top-Up & Fund Management
-Users can add money to their virtual card from linked accounts.
+## 🚀 Core Features
 
-🔁 Money Transfer
-Peer-to-peer transfers between users.
+### 💳 Virtual Card Management
+- Unique virtual card per user
+- Secure card data storage
+- Real-time balance and status visibility
 
-Real-time balance updates and transaction logging.
+### 💰 Top-Up & Fund Management
+- Add funds from linked accounts
+- Secure and validated top-up workflows
 
-Secure and validated transfer workflows.
+### 🔁 Money Transfer
+- Peer-to-peer transfers between users
+- Real-time balance updates and transaction logging
 
-💸 Refunds
-Users can initiate refunds for eligible transactions.
+### 💸 Refunds
+- Initiate and track eligible refunds
+- Notification on refund status
 
-Refund status tracking and notifications.
+### 📜 Transaction History
+- Detailed logs of all financial activity
+- Filter by date, type, and amount
+- Exportable summaries (future enhancement)
 
-📜 Transaction History
-Detailed logs of all spending, transfers, top-ups, and refunds.
+### 📬 Notifications
+- Real-time alerts for:
+  - Successful transactions
+  - Refunds
+  - Low balance warnings
+  - Security alerts
+- Email via SMTP
+- SMS via Twilio (or configurable provider)
 
-Filter by date, type, or amount.
+---
 
-Exportable summaries (optional future enhancement).
+## 🛠️ Tech Stack
 
-📲 Notifications
-Real-time alerts via email and SMS for:
+| Category         | Technology                          |
+|------------------|--------------------------------------|
+| Language         | Java 17                              |
+| Framework        | Spring Boot 3.x                      |
+| Architecture     | Microservices                        |
+| Service Discovery| Spring Cloud Netflix Eureka          |
+| Config Management| Spring Cloud Config (optional)       |
+| API Gateway      | Spring Cloud Gateway                 |
+| Database         | PostgreSQL, Redis                    |
+| Messaging        | RabbitMQ / Kafka (optional)          |
+| Containerization | Docker                               |
+| Testing          | JUnit, Mockito                       |
 
-Successful transactions
+---
 
-Refunds
+## 🐳 Deployment
 
-Low balance warnings
-
-Security alerts
-
-🔐 Security & Authentication
-JWT-based authentication for secure access.
-
-Role-based authorization (e.g., user vs admin).
-
-Password encryption and secure login flows.
-
-🧱 Microservices Architecture
-Service Name	Description
-Card Service	Manages virtual card creation, balance, and card-related operations.
-Transfer Service	Handles money transfers, top-ups, refunds, and transaction history.
-Messaging Service	Sends notifications via email and SMS using external providers.
-Security Service	Manages user authentication, authorization, and token-based access control.
-API Gateway: Centralized entry point for routing requests to respective services.
-
-🛠️ Tech Stack
-Language: Java
-
-Framework: Spring Boot
-
-Database: PostgreSQL, Redis
-
-Containerization: Docker
-
-Testing: JUnit, Mockito
-
-Architecture: Microservices
-
-Other Tools: Eureka (Service Discovery), Spring Cloud Config, API Gateway
-
-
-📬 Notifications
-Email: Integrated with SMTP provider.
-
-SMS: Integrated with Twilio (or other provider).
-
-Configurable via environment variables or Spring Cloud Config.
-
-🔐 Security
-JWT-based authentication.
-
-Role-based access control.
-
-Secure endpoints for sensitive operations.
-
-
-
-🧪 Developer-Friendly Features
-Dockerized Services: Easy deployment and scalability.
-
-Unit Testing: JUnit and Mockito for robust test coverage.
-
-PostgreSQL Integration: Reliable and scalable relational data storage.
-
-Spring Boot: Rapid development with clean architecture.
+### Prerequisites
+- Docker & Docker Compose installed
+- Java 17 and Maven/Gradle (for local builds)
