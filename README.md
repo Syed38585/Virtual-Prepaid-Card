@@ -15,27 +15,11 @@
 ---
 
 
-virtual-prepaid-card/
-├── docker-compose.yml
-├── service-eureka-server/
-│   ├── Dockerfile
-│   └── target/eureka-server.jar
-├── service-api-gateway/
-│   ├── Dockerfile
-│   └── target/api-gateway.jar
-├── service-security/
-│   ├── Dockerfile
-│   └── target/security-service.jar
-├── service-card/
-│   ├── Dockerfile
-│   └── target/card-service.jar
-├── service-transfer/
-│   ├── Dockerfile
-│   └── target/transfer-service.jar
-├── service-notification/
-│   ├── Dockerfile
-│   └── target/notification-service.jar
+## 📁 Project Structure
 
+virtual-prepaid-card/ 
+├── docker-compose.yml 
+├── service-eureka-server/ │ ├── Dockerfile │ └── target/ │ └── eureka-server.jar ├── service-api-gateway/ │ ├── Dockerfile │ └── target/ │ └── api-gateway.jar ├── service-security/ │ ├── Dockerfile │ └── target/ │ └── security-service.jar ├── service-card/ │ ├── Dockerfile │ └── target/ │ └── card-service.jar ├── service-transfer/ │ ├── Dockerfile │ └── target/ │ └── transfer-service.jar ├── service-notification/ │ ├── Dockerfile │ └── target/ │ └── notification-service.jar
 
 ## 🔐 Security & Authentication
 
